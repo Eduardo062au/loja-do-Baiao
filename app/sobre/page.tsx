@@ -25,8 +25,8 @@ export default function SobrePage() {
       </div>
 
       <div className={styles.secao}>
-        <h2>Desenvolvedor</h2>
-        <p>Projeto desenvolvido por Eduardo — Turma ESN-5.</p>
+        <h2>Desenvolvedores</h2>
+        <p>Projeto desenvolvido por Eduardo Martins, Antonio Fernandes, Adrien dos Santos — Turma ESN-5.</p>
       </div>
     </div>
   )
