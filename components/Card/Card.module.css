@@ -31,11 +31,28 @@
   cursor: pointer;
   font-size: 0.9rem;
   font-family: Georgia, serif;
+  width: 100%;
 }
 
 .curtido {
   background-color: #fff0f0;
   border-color: #e00;
+}
+
+.carrinho {
+  background: none;
+  border: 2px solid #222;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: Georgia, serif;
+  width: 100%;
+}
+
+.noCarrinho {
+  background-color: #f0fff0;
+  border-color: #080;
 }
 
 .btn {
@@ -44,6 +61,8 @@
   padding: 0.5rem 1.2rem;
   border-radius: 4px;
   font-size: 0.9rem;
+  width: 100%;
+  text-align: center;
 }
 
 .btn:hover {

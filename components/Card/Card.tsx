@@ -11,21 +11,26 @@ interface Props {
   imagem: string
 }
 
-function getFavoritos(): number[] {
-  if (typeof window === 'undefined') return []
-  return JSON.parse(localStorage.getItem('favoritos') || '[]')
-}
-
 export default function Card({ id, nome, preco, imagem }: Props) {
-  const [curtido, setCurtido] = useState(() => getFavoritos().includes(id))
+  const [curtido, setCurtido] = useState(false)
+  const [noCarrinho, setNoCarrinho] = useState(false)
 
   const toggleFavorito = () => {
-    const salvos = getFavoritos()
+    const salvos = JSON.parse(localStorage.getItem('favoritos') || '[]')
     const novos = salvos.includes(id)
-      ? salvos.filter((i) => i !== id)
+      ? salvos.filter((i: number) => i !== id)
       : [...salvos, id]
     localStorage.setItem('favoritos', JSON.stringify(novos))
     setCurtido(!curtido)
+  }
+
+  const toggleCarrinho = () => {
+    const salvos = JSON.parse(localStorage.getItem('carrinho') || '[]')
+    const novos = salvos.includes(id)
+      ? salvos.filter((i: number) => i !== id)
+      : [...salvos, id]
+    localStorage.setItem('carrinho', JSON.stringify(novos))
+    setNoCarrinho(!noCarrinho)
   }
 
   return (
@@ -38,6 +43,12 @@ export default function Card({ id, nome, preco, imagem }: Props) {
         onClick={toggleFavorito}
       >
         {curtido ? '❤️ Favoritado' : '🤍 Favoritar'}
+      </button>
+      <button
+        className={`${styles.carrinho} ${noCarrinho ? styles.noCarrinho : ''}`}
+        onClick={toggleCarrinho}
+      >
+        {noCarrinho ? '🛒 Adicionado' : '🛒 Adicionar'}
       </button>
       <Link href={`/produtos/${id}`} className={styles.btn}>
         Ver detalhes
