@@ -23,6 +23,21 @@
   font-size: 1rem;
 }
 
+.curtir {
+  background: none;
+  border: 2px solid #222;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: Georgia, serif;
+}
+
+.curtido {
+  background-color: #fff0f0;
+  border-color: #e00;
+}
+
 .btn {
   background-color: #222;
   color: #fff;
