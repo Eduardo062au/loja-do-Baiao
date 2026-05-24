@@ -1,0 +1,36 @@
+.card {
+  background-color: #fff;
+  border: 2px solid #222;
+  border-radius: 6px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.imagem {
+  font-size: 3rem;
+}
+
+.nome {
+  font-size: 1.1rem;
+}
+
+.preco {
+  color: #555;
+  font-size: 1rem;
+}
+
+.btn {
+  background-color: #222;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  background-color: #444;
+}
