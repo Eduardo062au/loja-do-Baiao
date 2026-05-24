@@ -14,6 +14,20 @@ interface Props {
 export default function Card({ id, nome, preco, imagem }: Props) {
   const [curtido, setCurtido] = useState(false)
 
+  const toggleFavorito = () => {
+    try {
+      const salvos: number[] = JSON.parse(localStorage.getItem('favoritos') || '[]')
+      const novos = salvos.includes(id)
+        ? salvos.filter((i) => i !== id)
+        : [...salvos, id]
+      localStorage.setItem('favoritos', JSON.stringify(novos))
+      setCurtido(!curtido)
+      console.log('Favoritos salvos:', novos)
+    } catch (e) {
+      console.error('Erro ao salvar favorito:', e)
+    }
+  }
+
   return (
     <div className={styles.card}>
       <div className={styles.imagem}>{imagem}</div>
@@ -21,7 +35,7 @@ export default function Card({ id, nome, preco, imagem }: Props) {
       <p className={styles.preco}>R$ {preco.toFixed(2)}</p>
       <button
         className={`${styles.curtir} ${curtido ? styles.curtido : ''}`}
-        onClick={() => setCurtido(!curtido)}
+        onClick={toggleFavorito}
       >
         {curtido ? '❤️ Favoritado' : '🤍 Favoritar'}
       </button>
