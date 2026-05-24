@@ -4,7 +4,6 @@ import { useState } from 'react'
 import styles from './page.module.css'
 import Link from 'next/link'
 import produtos from '@/lib/produtos'
-import Card from '@/components/Card/Card'
 
 function getFavoritos(): number[] {
   if (typeof window === 'undefined') return []
@@ -12,7 +11,13 @@ function getFavoritos(): number[] {
 }
 
 export default function FavoritosPage() {
-  const [favoritos] = useState<number[]>(() => getFavoritos())
+  const [favoritos, setFavoritos] = useState<number[]>(() => getFavoritos())
+
+  const remover = (id: number) => {
+    const novos = favoritos.filter((i) => i !== id)
+    localStorage.setItem('favoritos', JSON.stringify(novos))
+    setFavoritos(novos)
+  }
 
   const produtosFavoritos = produtos.filter((p) => favoritos.includes(p.id))
 
@@ -27,7 +32,17 @@ export default function FavoritosPage() {
       ) : (
         <div className={styles.grid}>
           {produtosFavoritos.map((p) => (
-            <Card key={p.id} id={p.id} nome={p.nome} preco={p.preco} imagem={p.imagem} />
+            <div key={p.id} className={styles.card}>
+              <div className={styles.imagem}>{p.imagem}</div>
+              <h2 className={styles.nome}>{p.nome}</h2>
+              <p className={styles.preco}>R$ {p.preco.toFixed(2)}</p>
+              <button className={styles.remover} onClick={() => remover(p.id)}>
+                ❌ Remover
+              </button>
+              <Link href={`/produtos/${p.id}`} className={styles.btn}>
+                Ver detalhes
+              </Link>
+            </div>
           ))}
         </div>
       )}

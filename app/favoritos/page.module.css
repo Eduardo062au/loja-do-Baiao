@@ -1,36 +1,44 @@
-.container {
-  max-width: 600px;
-  margin: 3rem auto;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.titulo {
-  font-size: 2rem;
-}
-
-.texto {
-  color: #555;
-  font-size: 1rem;
-}
-
-.btn {
-  background-color: #222;
-  color: #fff;
-  padding: 0.6rem 1.5rem;
-  border-radius: 4px;
-  font-size: 0.95rem;
-  width: fit-content;
-}
-
-.btn:hover {
-  background-color: #444;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.5rem;
+}
+
+.card {
+  background-color: #fff;
+  border: 2px solid #222;
+  border-radius: 6px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.imagem {
+  font-size: 3rem;
+}
+
+.nome {
+  font-size: 1.1rem;
+}
+
+.preco {
+  color: #555;
+}
+
+.remover {
+  background: none;
+  border: 2px solid #e00;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: Georgia, serif;
+  color: #e00;
+}
+
+.remover:hover {
+  background-color: #fff0f0;
 }
