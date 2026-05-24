@@ -1,10 +1,13 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 1rem 2rem;
   background-color: #fff;
   border-bottom: 2px solid #222;
+  gap: 0.75rem;
+  text-align: center;
 }
 
 .logo a {
@@ -16,6 +19,7 @@
   display: flex;
   gap: 1.5rem;
   font-size: 1rem;
+  justify-content: center;
 }
 
 .nav a:hover {
